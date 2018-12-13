@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Dominio", "ControleCombustivel.Dominio\ControleCombustivel.Dominio.csproj", "{C21FE73E-2306-4CB4-8CF8-798253BB9918}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Utilidades", "ControleCombustivel.Utilidades\ControleCombustivel.Utilidades.csproj", "{2DEEB385-2676-4052-A9F6-9FDB2122B3F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Dados", "ControleCombustivel.Dados\ControleCombustivel.Dados.csproj", "{4FE2E3DB-7D66-4525-925D-7BB3A6404365}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C21FE73E-2306-4CB4-8CF8-798253BB9918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21FE73E-2306-4CB4-8CF8-798253BB9918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C21FE73E-2306-4CB4-8CF8-798253BB9918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DEEB385-2676-4052-A9F6-9FDB2122B3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DEEB385-2676-4052-A9F6-9FDB2122B3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DEEB385-2676-4052-A9F6-9FDB2122B3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DEEB385-2676-4052-A9F6-9FDB2122B3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

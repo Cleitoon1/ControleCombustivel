@@ -1,6 +1,7 @@
-﻿using ControleCombustivel.Dominio.ObjetosValor;
+﻿using ControleCombustivel.Utilidades.Validacoes;
 using Flunt.Validations;
 using System;
+using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Entities
 {
@@ -12,26 +13,27 @@ namespace ControleCombustivel.Dominio.Entities
 
         public string NomeMedidaPlural { get; private set; }
 
-        public TipoCombustivel(int id, string nome, string nomeMedida, string nomeMedidaPlural, bool ativo = true)
-        {
-            this.Id = id;
-            this.Nome = nome;
-            this.NomeMedida = nomeMedida;
-            this.NomeMedidaPlural = nomeMedidaPlural;
-            this.Ativo = ativo;
-            Validar();
-        }
+        public ICollection<Veiculo> Veiculos { get; private set; }
 
-        public TipoCombustivel(string nome, string nomeMedida, string nomeMedidaPlural, bool ativo = true)
+        public ICollection<Abastecimento> Abastecimentos { get; private set; }
+
+        public TipoCombustivel(string nome, string nomeMedida, string nomeMedidaPlural) : base()
         {
             this.Nome = nome;
             this.NomeMedida = nomeMedida;
             this.NomeMedidaPlural = nomeMedidaPlural;
-            this.Ativo = ativo;
             Validar();
         }
 
-        private void Validar()
+        public TipoCombustivel(int id, string nome, string nomeMedida, string nomeMedidaPlural, bool ativo = true) : base(id, ativo)
+        {
+            this.Nome = nome;
+            this.NomeMedida = nomeMedida;
+            this.NomeMedidaPlural = nomeMedidaPlural;
+            Validar();
+        }
+
+        public override void Validar()
         {
             AddNotifications(
                 new Contract().Requires().IsNullOrEmpty(this.Nome, this.Nome, "Informe o Nome")

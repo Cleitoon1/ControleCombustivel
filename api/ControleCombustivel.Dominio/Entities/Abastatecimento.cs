@@ -1,6 +1,6 @@
 ﻿namespace ControleCombustivel.Dominio.Entities
 {
-    public class Abastatecimento : Base
+    public class Abastecimento : Base
     {
         public string Nome { get; private set; }
 
@@ -28,12 +28,35 @@
 
         public int IdTipoCombustivel { get; private set; }
 
-        public Abastatecimento(string nome, string descricao, decimal quantidade, decimal? valorTotal, int idVeiculo, int idPosto, int idCompetencia, int idTipoCombustivel)
+        public Abastecimento(string nome, string descricao, decimal quantidade, decimal valorUnitario, decimal valorTotal, int idVeiculo, int idPosto, int idCompetencia, int idTipoCombustivel) : base()
         {
-
+            this.Nome = nome;
+            this.Descricao = descricao;
+            this.Quantidade = quantidade;
+            this.ValorUnitario = this.ValorUnitario;
+            this.ValorTotal = valorTotal;
+            this.IdVeiculo = IdVeiculo;
+            this.IdPosto = idPosto;
+            this.IdCompetencia = IdCompetencia;
+            this.IdTipoCombustivel = IdTipoCombustivel;
+            Validar();
         }
 
-        private void Validar(Abastatecimento abastatecimento)
+        public Abastecimento(int id, string nome, string descricao, decimal quantidade, decimal valorUnitario, decimal valorTotal, int idVeiculo, int idPosto, int idCompetencia, int idTipoCombustivel, bool ativo = true) : base(id, ativo)
+        {
+            this.Nome = nome;
+            this.Descricao = descricao;
+            this.Quantidade = quantidade;
+            this.ValorUnitario = this.ValorUnitario;
+            this.ValorTotal = valorTotal;
+            this.IdVeiculo = IdVeiculo;
+            this.IdPosto = idPosto;
+            this.IdCompetencia = IdCompetencia;
+            this.IdTipoCombustivel = IdTipoCombustivel;
+            Validar();
+        }
+
+        public override void Validar()
         {
 
         }

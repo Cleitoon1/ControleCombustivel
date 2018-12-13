@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dominio.Interfaces.Respositorios
 {
-    public interface IAbastecimentoRep : IBaseRep<Abastatecimento>
+    public interface IAbastecimentoRep : IBaseRep<Abastecimento>
     {
 
     }

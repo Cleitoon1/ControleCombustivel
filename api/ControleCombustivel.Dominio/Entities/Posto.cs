@@ -1,25 +1,65 @@
-﻿namespace ControleCombustivel.Dominio.Entities
+﻿using System.Collections.Generic;
+
+namespace ControleCombustivel.Dominio.Entities
 {
     public class Posto : Base
     {
-        public string Nome { get; set; }
+        public Posto(string nome, string cnpj, long lat, long @long, string cep, string rua, string numero, string bairro,
+            string cidade, string estado) : base()
+        {
+            Nome = nome;
+            Cnpj = cnpj;
+            Lat = lat;
+            Long = @long;
+            Cep = cep;
+            Rua = rua;
+            Numero = numero;
+            Bairro = bairro;
+            Cidade = cidade;
+            Estado = estado;
+            Validar();
+        }
 
-        public string Cnpj { get; set; }
+        public Posto(int id, string nome, string cnpj, long lat, long @long, string cep, string rua, string numero, string bairro,
+            string cidade, string estado, bool ativo = true) : base(id, ativo)
+        {
+            Nome = nome;
+            Cnpj = cnpj;
+            Lat = lat;
+            Long = @long;
+            Cep = cep;
+            Rua = rua;
+            Numero = numero;
+            Bairro = bairro;
+            Cidade = cidade;
+            Estado = estado;
+            Validar();
+        }
 
-        public long Lat { get; set; }
+        public string Nome { get; private set; }
 
-        public long Long { get; set; }
+        public string Cnpj { get; private set; }
 
-        public string Cep { get; set; }
+        public long Lat { get; private set; }
 
-        public string Rua { get; set; }
+        public long Long { get; private set; }
 
-        public string Numero { get; set; }
+        public string Cep { get; private set; }
 
-        public string Bairro { get; set; }
+        public string Rua { get; private set; }
 
-        public string Cidade { get; set; }
+        public string Numero { get; private set; }
 
-        public string Estado { get; set; }
+        public string Bairro { get; private set; }
+
+        public string Cidade { get; private set; }
+
+        public string Estado { get; private set; }
+
+        public ICollection<Abastecimento> Abastecimentos { get; private set; }
+
+        public override void Validar()
+        {
+        }
     }
 }

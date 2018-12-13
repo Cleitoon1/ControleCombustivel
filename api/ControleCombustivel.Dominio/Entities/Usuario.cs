@@ -1,46 +1,44 @@
-﻿using ControleCombustivel.Dominio.ObjetosValor;
+﻿using ControleCombustivel.Utilidades;
+using ControleCombustivel.Utilidades.Validacoes;
 using Flunt.Validations;
 using System.Collections.Generic;
-using static ControleCombustivel.Dominio.ObjetosValor.CPF;
+using static ControleCombustivel.Utilidades.Validacoes.CPF;
 
 namespace ControleCombustivel.Dominio.Entities
 {
     public class Usuario : Base
     {
-        public string NomeCompleto { get; set; }
+        public string NomeCompleto { get; private set; }
 
-        public string Cpf { get; set; }
+        public string Cpf { get; private set; }
 
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
-        public string Senha { get; set; }
+        public string Senha { get; private set; }
 
         public ICollection<Competencia> Competencias { get; set; }
 
         public ICollection<Veiculo> Veiculos { get; set; }
 
-        public Usuario(int id, string nomeCompleto, string cpf, string email, string senha, bool ativo = true)
+        public Usuario(int id, string nomeCompleto, string cpf, string email, string senha, bool ativo = true) : base(id, ativo)
         {
-            this.Id = id;
             this.NomeCompleto = nomeCompleto;
             this.Cpf = cpf;
             this.Email = email;
             this.Senha = senha;
-            this.Ativo = ativo;
             Validar();
         }
 
-        public Usuario(string nomeCompleto, string cpf, string email, string senha, bool ativo = true)
+        public Usuario(string nomeCompleto, string cpf, string email, string senha)
         {
             this.NomeCompleto = nomeCompleto;
             this.Cpf = cpf;
             this.Email = email;
-            this.Senha = ValidarSenha(senha);
-            this.Ativo = ativo;
+            AlterarSenha(senha);
             Validar();
         }
 
-        private void Validar()
+        public override void Validar()
         {
             AddNotifications(
                 new Contract().Requires().IsNullOrEmpty(this.NomeCompleto, this.NomeCompleto, "Informe o Nome Completo")
@@ -55,9 +53,17 @@ namespace ControleCombustivel.Dominio.Entities
             );
         }
 
-        private string ValidarSenha(string senha)
+        public void AlterarSenha(string senha)
         {
-            return "";
+            AddNotifications(
+                new Contract().Requires().IsNullOrEmpty(this.Senha, this.Senha, "Informe a Senha")
+                .HasMaxLen(this.Senha, 12, this.Senha, "A Senha deve ter no máximo 12 caracteres"));
+            this.Senha = Password.Encrypt(senha);
+        }
+
+        public bool CompararSenha(string pass)
+        {
+            return Password.Encrypt(pass).Equals(this.Senha);
         }
     }
 }

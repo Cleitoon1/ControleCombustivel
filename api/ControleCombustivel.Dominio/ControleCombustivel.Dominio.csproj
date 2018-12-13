@@ -119,13 +119,17 @@
     <Compile Include="Interfaces\Servicos\IPostoService.cs" />
     <Compile Include="Interfaces\Servicos\ITipoCombustivelService.cs" />
     <Compile Include="Interfaces\Servicos\IUsuarioService.cs" />
-    <Compile Include="ObjetosValor\Configurations.cs" />
-    <Compile Include="ObjetosValor\CPF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControleCombustivel.Utilidades\ControleCombustivel.Utilidades.csproj">
+      <Project>{2DEEB385-2676-4052-A9F6-9FDB2122B3F6}</Project>
+      <Name>ControleCombustivel.Utilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
