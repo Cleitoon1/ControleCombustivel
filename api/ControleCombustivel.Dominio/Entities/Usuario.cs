@@ -1,12 +1,11 @@
 ﻿using ControleCombustivel.Utilidades;
 using ControleCombustivel.Utilidades.Validacoes;
-using Flunt.Validations;
+using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
-using static ControleCombustivel.Utilidades.Validacoes.CPF;
 
 namespace ControleCombustivel.Dominio.Entities
 {
-    public class Usuario : Base
+    public class Usuario : EntityBase
     {
         public string NomeCompleto { get; private set; }
 
@@ -16,48 +15,55 @@ namespace ControleCombustivel.Dominio.Entities
 
         public string Senha { get; private set; }
 
+        public int IdTipoUsuario { get; set; }
+
+        public TipoUsuario TipoUsuario { get; set; }
+
         public ICollection<Competencia> Competencias { get; set; }
 
         public ICollection<Veiculo> Veiculos { get; set; }
 
-        public Usuario(int id, string nomeCompleto, string cpf, string email, string senha, bool ativo = true) : base(id, ativo)
+        public Usuario(int id, string nomeCompleto, string cpf, string email, string senha, int idTipoUsuario, bool ativo = true) : base(id, ativo)
         {
             this.NomeCompleto = nomeCompleto;
             this.Cpf = cpf;
             this.Email = email;
             this.Senha = senha;
+            this.IdTipoUsuario = idTipoUsuario;
             Validar();
         }
 
-        public Usuario(string nomeCompleto, string cpf, string email, string senha)
+        public Usuario(string nomeCompleto, string cpf, string email, string senha, int idTipoUsuario)
         {
             this.NomeCompleto = nomeCompleto;
             this.Cpf = cpf;
             this.Email = email;
+            this.IdTipoUsuario = idTipoUsuario;
             AlterarSenha(senha);
             Validar();
         }
 
         public override void Validar()
         {
-            AddNotifications(
-                new Contract().Requires().IsNullOrEmpty(this.NomeCompleto, this.NomeCompleto, "Informe o Nome Completo")
-                .HasMaxLen(this.NomeCompleto, Configurations.MediumStringLength, this.NomeCompleto, "O Nome Completo deve ter no máximo 60 caracteres"),
-                
-                new Contract().Requires().IsNullOrEmpty(this.Cpf, this.Cpf, "Informe o CPF")
-                .IsTrue(CPFValidation.Validar(this.Cpf), this.Cpf, "Informe um CPF válido"),
-                
-                new Contract().Requires().IsNullOrEmpty(this.Email, this.Email, "Informe o Email")
-                .HasMaxLen(this.Email, Configurations.ShortStringLength, this.Email, "O Email da Medida deve ter no máximo 30 caracteres")
-                .IsEmailOrEmpty(this.Email, this.Email, "Informe um Email válido")
-            );
+            new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.NomeCompleto, "Informe o Nome Completo")
+                .IfLengthGreaterThan(x => x.NomeCompleto, Configurations.MediumStringLength, "O Nome Completo deve ter no máximo 60 caracteres");
+
+            new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.Email, "Informe o Email")
+                .IfLengthGreaterThan(x => x.Email, Configurations.MediumStringLength, "O Email deve ter no máximo 30 caracteres")
+                .IfNotEmail(x => x.Email, "Informe um Email válido");
+
+            new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.Cpf, "Informe o Cpf")
+            .IfLengthGreaterThan(x => x.Email, 15, "O Cpf deve ter no máximo 15 caracteres")
+            .IfNotCpf(x => x.Cpf, "Informe um Cpf válido");
+
+            new AddNotifications<Usuario>(this).IfEqualsZero(x => x.IdTipoUsuario, "Informe o Id do Tipo de Usuário");
+
         }
 
         public void AlterarSenha(string senha)
         {
-            AddNotifications(
-                new Contract().Requires().IsNullOrEmpty(this.Senha, this.Senha, "Informe a Senha")
-                .HasMaxLen(this.Senha, 12, this.Senha, "A Senha deve ter no máximo 12 caracteres"));
+            new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.Senha, "Informe a Senha")
+               .IfLengthGreaterThan(x => x.NomeCompleto, 12, "A Senha deve ter no máximo 12 caracteres");
             this.Senha = Password.Encrypt(senha);
         }
 

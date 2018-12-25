@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ControleCombustivel.Utilidades.Validacoes;
+using prmToolkit.NotificationPattern;
+using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Entities
 {
-    public class Posto : Base
+    public class Posto : EntityBase
     {
         public Posto(string nome, string cnpj, long lat, long @long, string cep, string rua, string numero, string bairro,
             string cidade, string estado) : base()
@@ -60,6 +62,8 @@ namespace ControleCombustivel.Dominio.Entities
 
         public override void Validar()
         {
+            new AddNotifications<Posto>(this).IfNotNullOrEmpty(x => x.Nome, "Informe o Nome").IfLengthGreaterThan
+                 (x => x.Nome, Configurations.ShortStringLength, "O Nome deve ter no máximo 30 caracteres");
         }
     }
 }

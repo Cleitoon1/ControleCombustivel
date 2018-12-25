@@ -5,7 +5,6 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\ControleCombustivel.Dominio.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\EntityFramework.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\Flunt.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\ControleCombustivel.Utilidades.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\ControleCombustivel.Dominio.pdb
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\ControleCombustivel.Dominio.dll.config
@@ -18,3 +17,6 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\obj\Debug\ControleCombustivel.Dados.Migrations.Initial.resources
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\obj\Debug\ControleCombustivel.Dados.csproj.GenerateResource.Cache
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\obj\Debug\ControleCombustivel.Dados.Migrations.AtualizacaoVarchar.resources
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\obj\Debug\ControleCombustivel.Dados.Migrations.adicionando_tipo_usuario.resources
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\prmToolkit.NotificationPattern.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dados\bin\Debug\en-US\prmToolkit.NotificationPattern.resources.dll

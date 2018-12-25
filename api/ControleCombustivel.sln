@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Utilida
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Dados", "ControleCombustivel.Dados\ControleCombustivel.Dados.csproj", "{4FE2E3DB-7D66-4525-925D-7BB3A6404365}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.IoC", "ControleCombustivel.IoC\ControleCombustivel.IoC.csproj", "{002C2FD5-9F76-405A-8DFF-3E9D5843ABD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Api", "ControleCombustivel.Api\ControleCombustivel.Api.csproj", "{78F4CA4F-022B-4989-8504-62F3A3321977}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FE2E3DB-7D66-4525-925D-7BB3A6404365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002C2FD5-9F76-405A-8DFF-3E9D5843ABD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002C2FD5-9F76-405A-8DFF-3E9D5843ABD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002C2FD5-9F76-405A-8DFF-3E9D5843ABD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002C2FD5-9F76-405A-8DFF-3E9D5843ABD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78F4CA4F-022B-4989-8504-62F3A3321977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78F4CA4F-022B-4989-8504-62F3A3321977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78F4CA4F-022B-4989-8504-62F3A3321977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78F4CA4F-022B-4989-8504-62F3A3321977}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

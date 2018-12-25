@@ -1,11 +1,10 @@
 ﻿using ControleCombustivel.Utilidades.Validacoes;
-using Flunt.Validations;
-using System;
+using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Entities
 {
-    public class TipoCombustivel : Base
+    public class TipoCombustivel : EntityBase
     {
         public string Nome { get; private set; }
 
@@ -35,16 +34,14 @@ namespace ControleCombustivel.Dominio.Entities
 
         public override void Validar()
         {
-            AddNotifications(
-                new Contract().Requires().IsNullOrEmpty(this.Nome, this.Nome, "Informe o Nome")
-                .HasMaxLen(this.Nome, Configurations.ShortStringLength, this.Nome, "O Nome deve ter no máximo 30 caracteres"),
+            new AddNotifications<TipoCombustivel>(this).IfNotNullOrEmpty(x => x.Nome, "Informe o Nome").IfLengthGreaterThan
+                 (x => x.Nome, Configurations.ShortStringLength, "O Nome deve ter no máximo 30 caracteres");
 
-                new Contract().Requires().IsNullOrEmpty(this.NomeMedida, this.NomeMedida, "Informe o Nome da Medida")
-                .HasMaxLen(this.NomeMedida, Configurations.ShortStringLength, this.NomeMedida, "O Nome da Medida deve ter no máximo 30 caracteres"),
-                
-                new Contract().Requires().IsNullOrEmpty(this.NomeMedidaPlural, this.NomeMedidaPlural, "Informe o Nome da Medida no plural")
-                .HasMaxLen(this.NomeMedidaPlural, Configurations.ShortStringLength, this.NomeMedidaPlural, "O Nome da Medida deve ter no máximo 30 caracteres")
-            );
+            new AddNotifications<TipoCombustivel>(this).IfNotNullOrEmpty(x => x.NomeMedida, "Informe o Nome da Medida").IfLengthGreaterThan
+                 (x => x.NomeMedida, Configurations.ShortStringLength, "O Nome da Medida deve ter no máximo 30 caracteres");
+
+            new AddNotifications<TipoCombustivel>(this).IfNotNullOrEmpty(x => x.NomeMedidaPlural, "Informe o Nome da Medida no plural").IfLengthGreaterThan
+                 (x => x.NomeMedidaPlural, Configurations.ShortStringLength, "O Nome da Medida deve ter no máximo 30 caracteres");
         }
     }
 }

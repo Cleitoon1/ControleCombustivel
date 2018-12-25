@@ -1,13 +1,10 @@
-﻿using Flunt.Validations;
+﻿using prmToolkit.NotificationPattern;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dominio.Entities
 {
-    public class Competencia : Base
+    public class Competencia : EntityBase
     {
         public string Nome { get; private set; }
 
@@ -41,16 +38,9 @@ namespace ControleCombustivel.Dominio.Entities
 
         public override void Validar()
         {
-            AddNotifications(
-                new Contract().Requires()
-                .IsTrue(this.Mes >= 1, this.Mes.ToString(), "O Mês deve ser maior ou igual a 1")
-                .IsLowerOrEqualsThan(this.Mes, 12, this.Mes.ToString(), "O Mês deve ser menor ou igual a 12"),
 
-                new Contract().Requires()
-                .IsGreaterOrEqualsThan(this.Ano, (DateTime.Now.Year - 1), this.Ano.ToString(), "Informe um ano válido")
-                .IsLowerOrEqualsThan(this.Ano, (DateTime.Now.Year + 1), this.Ano.ToString(), "Informe um ano válido"));
-
-
+            new AddNotifications<Competencia>(this).IfNotRange(x => x.Mes, 1, 12, "O Mês deve ser maior ou igual a 1");
+            new AddNotifications<Competencia>(this).IfNotRange(x => x.Ano, (DateTime.Now.Year - 1), DateTime.Now.Year, "Informe um ano válido");
         }
     }
 }

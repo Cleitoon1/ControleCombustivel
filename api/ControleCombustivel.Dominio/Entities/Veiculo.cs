@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ControleCombustivel.Utilidades.Validacoes;
+using prmToolkit.NotificationPattern;
+using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Entities
 {
-    public class Veiculo : Base
+    public class Veiculo : EntityBase
     {
         public string Modelo { get; private set; }
 
@@ -45,6 +47,22 @@ namespace ControleCombustivel.Dominio.Entities
 
         public override void Validar()
         {
+
+            new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe o Modelo")
+                .IfLengthGreaterThan(x => x.Modelo, Configurations.MediumStringLength, "O Modelo deve ter no máximo 60 caracteres");
+
+            new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe a Placa")
+                .IfLengthGreaterThan(x => x.Modelo, 8, "A Placa deve ter no máximo 8 caracteres");
+
+            new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe o Modelo")
+                .IfLengthGreaterThan(x => x.Modelo, Configurations.MediumStringLength, "O Modelo deve ter no máximo 60 caracteres");
+
+            new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe o Fabricante")
+                .IfLengthGreaterThan(x => x.Modelo, Configurations.MediumStringLength, "O Fabricante deve ter no máximo 60 caracteres");
+
+            new AddNotifications<Veiculo>(this).IfLowerOrEqualsThan(x => x.AnoFabricacao, 1950, "Informe um ano válido");
+
+            new AddNotifications<Veiculo>(this).IfEqualsZero(x => x.IdUsuario, "Informe o Id do Usuário");
         }
 
     }

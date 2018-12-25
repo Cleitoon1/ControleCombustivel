@@ -1,24 +1,18 @@
 ﻿using ControleCombustivel.Dominio.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dominio.Interfaces.Servicos
 {
-    public interface IAbastecimentoService: IBaseService<Abastecimento>
+    public interface IAbastecimentoService : IBaseService<Abastecimento>
     {
-        IEnumerable<Abastecimento> BuscarPorCompetencia(int ano, int mes);
+        IEnumerable<Abastecimento> BuscarPorCompetencia(int mes, int ano, int idUsuario);
 
-        IEnumerable<Abastecimento> BuscarPorVeiculo(int idVeiculo);
+        IEnumerable<Abastecimento> BuscarPorVeiculo(int idVeiculo, int idUsuario);
 
         IEnumerable<Abastecimento> BuscarPorUsuario(int idUsuario);
 
-        IEnumerable<Abastecimento> BuscarPorTipoCombustivel(int idTipo);
+        IEnumerable<Abastecimento> BuscarPorTipoCombustivel(int idTipo, int idUsuario);
 
-        IEnumerable<Abastecimento> BuscarPorPosto(int idPosto);
-
-
+        IEnumerable<Abastecimento> BuscarPorPosto(int idPosto, int idUsuario);
     }
 }

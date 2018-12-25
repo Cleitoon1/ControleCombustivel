@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dados.Repositorios
 {
@@ -20,7 +18,7 @@ namespace ControleCombustivel.Dados.Repositorios
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Db.Dispose();
         }
 
         public T Get(int id)

@@ -1,25 +1,27 @@
-﻿using System;
+﻿using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dominio.Interfaces.Servicos
 {
-    public interface IBaseService<T> where T : class
+    public interface IBaseService<T> where T : class, INotifiable
     {
-        void Add(T obj);
+        bool Add(T obj);
 
         T Get(int id);
 
         IEnumerable<T> GetAll();
 
-        void Update(T obj);
+        bool Update(T obj);
 
-        void Remove(T obj);
+        bool Remove(T obj);
 
         void Remove(int id);
 
         void Dispose();
+
+        bool HasNotifications();
+
+        IEnumerable<Notification> GetNotifications();
+
     }
 }

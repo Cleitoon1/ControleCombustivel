@@ -1,20 +1,17 @@
 ﻿using ControleCombustivel.Dados.Mapeamentos;
 using ControleCombustivel.Dominio.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dados.Contexto
 {
     public class ControleCombustivelContexto : DbContext
     {
-        public ControleCombustivelContexto() : base("ConnectionString")
+        public ControleCombustivelContexto() : base("ControleCombustivel")
         {
-
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Abastecimento> Abastecimentos { get; set; }
@@ -22,6 +19,7 @@ namespace ControleCombustivel.Dados.Contexto
         public DbSet<Posto> Postos { get; set; }
         public DbSet<TipoCombustivel> TipoCombustiveis { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -38,6 +36,7 @@ namespace ControleCombustivel.Dados.Contexto
             modelBuilder.Configurations.Add(new PostoMap());
             modelBuilder.Configurations.Add(new TipoCombustivelMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new TipoUsuarioMap());
             modelBuilder.Configurations.Add(new VeiculoMap());
         }
 

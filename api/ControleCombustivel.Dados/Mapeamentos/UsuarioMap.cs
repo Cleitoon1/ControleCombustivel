@@ -1,10 +1,5 @@
 ﻿using ControleCombustivel.Dominio.Entities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleCombustivel.Dados.Mapeamentos
 {
@@ -23,6 +18,8 @@ namespace ControleCombustivel.Dados.Mapeamentos
             Property(x => x.Senha).IsRequired();
             HasMany(x => x.Competencias).WithRequired(x => x.Usuario).HasForeignKey(x => x.IdUsuario);
             HasMany(x => x.Veiculos).WithRequired(x => x.Usuario).HasForeignKey(x => x.IdUsuario);
+            HasRequired(x => x.TipoUsuario).WithMany().HasForeignKey(x => x.IdTipoUsuario);
+
         }
     }
 }

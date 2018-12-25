@@ -1,6 +1,9 @@
-﻿namespace ControleCombustivel.Dominio.Entities
+﻿using ControleCombustivel.Utilidades.Validacoes;
+using prmToolkit.NotificationPattern;
+
+namespace ControleCombustivel.Dominio.Entities
 {
-    public class Abastecimento : Base
+    public class Abastecimento : EntityBase
     {
         public string Nome { get; private set; }
 
@@ -48,7 +51,7 @@
             this.Descricao = descricao;
             this.Quantidade = quantidade;
             this.ValorUnitario = this.ValorUnitario;
-            this.ValorTotal = valorTotal;
+            this.ValorTotal = this.Quantidade * this.ValorUnitario;
             this.IdVeiculo = IdVeiculo;
             this.IdPosto = idPosto;
             this.IdCompetencia = IdCompetencia;
@@ -58,7 +61,19 @@
 
         public override void Validar()
         {
+            new AddNotifications<Abastecimento>(this).IfNotNullOrEmpty(x => x.Nome, "Informe o Nome")
+                 .IfLengthGreaterThan(x => x.Nome, Configurations.ShortStringLength, "O Nome deve ter no máximo 30 caracteres");
 
+            new AddNotifications<Abastecimento>(this).IfNotNullOrEmpty(x => x.Descricao, "Informe a Descrição")
+                 .IfLengthGreaterThan(x => x.Descricao, Configurations.BigStringLength, "O Descrição deve ter no máximo 150 caracteres");
+
+            new AddNotifications<Abastecimento>(this).IfLowerOrEqualsThan(x => x.Quantidade, 0M, "Informe a Quantidade");
+
+            new AddNotifications<Abastecimento>(this).IfEqualsZero(x => x.IdVeiculo, "Informe o Id do Veículo");
+
+            new AddNotifications<Abastecimento>(this).IfEqualsZero(x => x.IdCompetencia, "Informe o Id da Competência");
+
+            new AddNotifications<Abastecimento>(this).IfEqualsZero(x => x.IdTipoCombustivel, "Informe o Id do Tipo de Combustível");         
         }
     }
 }
