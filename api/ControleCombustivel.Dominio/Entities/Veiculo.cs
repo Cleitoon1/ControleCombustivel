@@ -22,6 +22,11 @@ namespace ControleCombustivel.Dominio.Entities
 
         public ICollection<TipoCombustivel> TiposCombustiveis { get; set; }
 
+        private Veiculo()
+        {
+
+        }
+
         public Veiculo(string modelo, string placa, string fabricante, int anoFabricacao, int idUsuario, bool principal) : base()
         {
             this.Modelo = modelo;

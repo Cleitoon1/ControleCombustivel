@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ControleCombustivel.Dominio.Entities;
+using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Interfaces.Respositorios
 {
@@ -17,5 +18,6 @@ namespace ControleCombustivel.Dominio.Interfaces.Respositorios
         void Remove(int id);
 
         void Dispose();
+
     }
 }

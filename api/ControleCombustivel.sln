@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.IoC", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleCombustivel.Api", "ControleCombustivel.Api\ControleCombustivel.Api.csproj", "{78F4CA4F-022B-4989-8504-62F3A3321977}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{FB0DC96E-B05B-4A16-BC01-1FB4D283E5B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{DDEB0D26-7A1F-4213-A5E0-9D940BEC56D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - IoC", "0 - IoC", "{6EFA7EC3-8248-4BBC-B789-11C98B5992E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Acesso a Dados", "3 - Acesso a Dados", "{C0CFD6DD-682D-4598-B6D6-65B9B8B55B53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Utilidades", "4 - Utilidades", "{C875784D-D885-4E94-8D35-D90DCEECFB8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +52,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C21FE73E-2306-4CB4-8CF8-798253BB9918} = {DDEB0D26-7A1F-4213-A5E0-9D940BEC56D9}
+		{2DEEB385-2676-4052-A9F6-9FDB2122B3F6} = {C875784D-D885-4E94-8D35-D90DCEECFB8C}
+		{4FE2E3DB-7D66-4525-925D-7BB3A6404365} = {C0CFD6DD-682D-4598-B6D6-65B9B8B55B53}
+		{002C2FD5-9F76-405A-8DFF-3E9D5843ABD1} = {6EFA7EC3-8248-4BBC-B789-11C98B5992E9}
+		{78F4CA4F-022B-4989-8504-62F3A3321977} = {FB0DC96E-B05B-4A16-BC01-1FB4D283E5B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FF7E174-852D-4C1A-8D75-A6FB7DCE1215}

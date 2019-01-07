@@ -16,6 +16,11 @@ namespace ControleCombustivel.Dominio.Entities
 
         public ICollection<Abastecimento> Abastecimentos { get; private set; }
 
+        private TipoCombustivel()
+        {
+
+        }
+
         public TipoCombustivel(string nome, string nomeMedida, string nomeMedidaPlural) : base()
         {
             this.Nome = nome;

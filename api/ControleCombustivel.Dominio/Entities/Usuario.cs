@@ -23,6 +23,11 @@ namespace ControleCombustivel.Dominio.Entities
 
         public ICollection<Veiculo> Veiculos { get; set; }
 
+        private Usuario()
+        {
+
+        }
+
         public Usuario(int id, string nomeCompleto, string cpf, string email, string senha, int idTipoUsuario, bool ativo = true) : base(id, ativo)
         {
             this.NomeCompleto = nomeCompleto;

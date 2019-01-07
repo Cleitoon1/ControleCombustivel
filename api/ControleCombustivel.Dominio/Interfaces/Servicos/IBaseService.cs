@@ -1,9 +1,10 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using ControleCombustivel.Dominio.Entities;
+using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Interfaces.Servicos
 {
-    public interface IBaseService<T> where T : class, INotifiable
+    public interface IBaseService<T> where T : EntityBase, INotifiable
     {
         bool Add(T obj);
 

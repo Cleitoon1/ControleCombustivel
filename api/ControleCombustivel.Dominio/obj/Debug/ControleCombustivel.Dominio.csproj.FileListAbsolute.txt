@@ -1,10 +1,9 @@
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\obj\Debug\ControleCombustivel.Dominio.csprojResolveAssemblyReference.cache
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\obj\Debug\ControleCombustivel.Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\ControleCombustivel.Dominio.dll.config
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\ControleCombustivel.Dominio.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\ControleCombustivel.Dominio.pdb
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\ControleCombustivel.Utilidades.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\prmToolkit.NotificationPattern.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\System.AppContext.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\System.Console.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\System.Diagnostics.DiagnosticSource.dll
@@ -23,7 +22,8 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\System.Xml.ReaderWriter.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\ControleCombustivel.Utilidades.pdb
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\en-US\prmToolkit.NotificationPattern.resources.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\obj\Debug\ControleCombustivel.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\obj\Debug\ControleCombustivel.Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\obj\Debug\ControleCombustivel.Dominio.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\obj\Debug\ControleCombustivel.Dominio.pdb
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\prmToolkit.NotificationPattern.dll
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Dominio\bin\Debug\en-US\prmToolkit.NotificationPattern.resources.dll

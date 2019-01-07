@@ -1,4 +1,5 @@
 ﻿using ControleCombustivel.Dados.Contexto;
+using ControleCombustivel.Dominio.Entities;
 using ControleCombustivel.Dominio.Interfaces.Respositorios;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,10 @@ namespace ControleCombustivel.Dados.Repositorios
 
         public void Dispose()
         {
-            Db.Dispose();
+            if (Db != null)
+                Db.Dispose();
+            else
+                GC.SuppressFinalize(this);
         }
 
         public T Get(int id)
@@ -45,6 +49,6 @@ namespace ControleCombustivel.Dados.Repositorios
         public void Remove(int id)
         {
             Db.Set<T>().Remove(this.Get(id));
-        } 
+        }
     }
 }

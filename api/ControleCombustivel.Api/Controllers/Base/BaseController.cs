@@ -1,6 +1,7 @@
 ﻿using ControleCombustivel.Dados.Transactions;
 using ControleCombustivel.Dominio.Entities;
 using ControleCombustivel.Dominio.Interfaces.Servicos;
+using prmToolkit.NotificationPattern;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -12,18 +13,18 @@ namespace ControleCombustivel.Api.Controllers.Base
     public class BaseController : ApiController
     {
         private readonly IUnitOfWork _unitOfWork;
-        private IBaseService<EntityBase> _serviceBase;
+        private INotifiable _serviceBase ;
 
         public BaseController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<HttpResponseMessage> ResponseAsync(object result, IBaseService<EntityBase> serviceBase)
+        public async Task<HttpResponseMessage> ResponseAsync<T>(object result, INotifiable serviceBase)
         {
             _serviceBase = serviceBase;
 
-            if (!serviceBase.HasNotifications())
+            if (serviceBase.Notifications.Count == 0)
             {
                 try
                 {
@@ -39,7 +40,7 @@ namespace ControleCombustivel.Api.Controllers.Base
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = serviceBase.GetNotifications() });
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = serviceBase.Notifications });
             }
         }
 

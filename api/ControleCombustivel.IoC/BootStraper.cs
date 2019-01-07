@@ -1,47 +1,39 @@
-﻿using ControleCombustivel.Dados.Repositorios;
+﻿using ControleCombustivel.Dados.Contexto;
+using ControleCombustivel.Dados.Repositorios;
 using ControleCombustivel.Dados.Transactions;
-using ControleCombustivel.Dominio.Entities;
 using ControleCombustivel.Dominio.Interfaces.Respositorios;
 using ControleCombustivel.Dominio.Interfaces.Servicos;
 using ControleCombustivel.Dominio.Servicos;
-using SimpleInjector;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Unity;
+using Unity.Lifetime;
 
 namespace ControleCombustivel.IoC
 {
     public class BootStraper
     {
-        public static void Register(Container container)
+        public static void Resolve(UnityContainer container)
         {
-            container.Register<Abastecimento>(Lifestyle.Scoped);
-            container.Register<Competencia>(Lifestyle.Scoped);
-            container.Register<Posto>(Lifestyle.Scoped);
-            container.Register<TipoCombustivel>(Lifestyle.Scoped);
-            container.Register<TipoUsuario>(Lifestyle.Scoped);
-            container.Register<Usuario>(Lifestyle.Scoped);
-            container.Register<Veiculo>(Lifestyle.Scoped);
+            //Contexto do Banco
+            container.RegisterType<ControleCombustivelContexto, ControleCombustivelContexto>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
+            //Services
+            container.RegisterType<IAbastecimentoService, AbastecimentoService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ICompetenciaService, CompetenciaService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IPostoService, PostoService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITipoCombustivelService, TipoCombustivelService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITipoUsuarioService, TipoUsuarioService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUsuarioService, UsuarioService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IVeiculoService, VeiculoService>(new HierarchicalLifetimeManager());
 
-            container.Register<IAbastecimentoService, AbastecimentoService>(Lifestyle.Scoped);
-            container.Register<ICompetenciaService, CompetenciaService>(Lifestyle.Scoped);
-            container.Register<IPostoService, PostoService>(Lifestyle.Scoped);
-            container.Register<ITipoCombustivelService, TipoCombustivelService>(Lifestyle.Scoped);
-            container.Register<ITipoUsuarioService, TipoUsuarioService>(Lifestyle.Scoped);
-            container.Register<IUsuarioService, UsuarioService>(Lifestyle.Scoped);
-            container.Register<IVeiculoService, VeiculoService>(Lifestyle.Scoped);
+            //Respositorios
+            container.RegisterType<IAbastecimentoRep, AbastecimentoRep>(new HierarchicalLifetimeManager());
+            container.RegisterType<ICompetenciaRep, CompetenciaRep>(new HierarchicalLifetimeManager());
+            container.RegisterType<IPostoRep, PostoRep>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITipoCombustivelRep, TipoCombustivelRep>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITipoUsuarioRep, TipoUsuarioRep>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUsuarioRep, UsuarioRep>(new HierarchicalLifetimeManager());
+            container.RegisterType<IVeiculoRep, VeiculoRep>(new HierarchicalLifetimeManager());
 
-            container.Register<IAbastecimentoRep, AbastecimentoRep>(Lifestyle.Scoped);
-            container.Register<ICompetenciaRep, CompetenciaRep>(Lifestyle.Scoped);
-            container.Register<IPostoRep, PostoRep>(Lifestyle.Scoped);
-            container.Register<ITipoCombustivelRep, TipoCombustivelRep>(Lifestyle.Scoped);
-            container.Register<ITipoUsuarioRep, TipoUsuarioRep>(Lifestyle.Scoped);
-            container.Register<IUsuarioRep, UsuarioRep>(Lifestyle.Scoped);
-            container.Register<IVeiculoRep, VeiculoRep>(Lifestyle.Scoped);
-
-            container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
 
         }
     }

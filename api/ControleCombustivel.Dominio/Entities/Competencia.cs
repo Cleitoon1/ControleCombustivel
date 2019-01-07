@@ -20,6 +20,10 @@ namespace ControleCombustivel.Dominio.Entities
 
         public ICollection<Abastecimento> Abastatecimentos { get; set; }
 
+        private Competencia()
+        {
+
+        }
         public Competencia(int mes, int ano, int idUsuario) : base()
         {
             this.Mes = mes;

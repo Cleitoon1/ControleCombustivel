@@ -20,6 +20,7 @@ namespace ControleCombustivel.Dominio.Servicos
 
         public bool Add(T obj)
         {
+            AddNotifications(obj);
             bool ok = obj.Notifications.Any();
             if(!ok)
                 _rep.Insert(obj);
@@ -33,6 +34,7 @@ namespace ControleCombustivel.Dominio.Servicos
 
         public bool Update(T obj)
         {
+            AddNotifications(obj);
             bool ok = obj.Notifications.Any();
             if (!ok)
                 _rep.Update(obj);
@@ -46,6 +48,7 @@ namespace ControleCombustivel.Dominio.Servicos
 
         public bool Remove(T obj)
         {
+            AddNotifications(obj);
             bool ok = obj.Notifications.Any();
             if(!ok)
                 _rep.Remove(obj);

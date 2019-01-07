@@ -13,6 +13,7 @@ namespace ControleCombustivel.Dominio.Entities
 
         public bool Ativo { get; private set; }
 
+
         public EntityBase(int id, bool ativo)
         {
             this.Id = id;

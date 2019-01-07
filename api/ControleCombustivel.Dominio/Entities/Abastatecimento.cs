@@ -31,6 +31,11 @@ namespace ControleCombustivel.Dominio.Entities
 
         public int IdTipoCombustivel { get; private set; }
 
+        private Abastecimento()
+        {
+
+        }
+
         public Abastecimento(string nome, string descricao, decimal quantidade, decimal valorUnitario, decimal valorTotal, int idVeiculo, int idPosto, int idCompetencia, int idTipoCombustivel) : base()
         {
             this.Nome = nome;

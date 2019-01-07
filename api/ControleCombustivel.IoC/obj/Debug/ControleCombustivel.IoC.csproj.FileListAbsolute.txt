@@ -5,7 +5,6 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\ControleCombustivel.Dominio.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\prmToolkit.NotificationPattern.dll
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\SimpleInjector.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\System.AppContext.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\System.Console.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\System.Diagnostics.DiagnosticSource.dll
@@ -28,7 +27,6 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\ControleCombustivel.Dados.dll.config
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\ControleCombustivel.Dominio.pdb
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\ControleCombustivel.Dominio.dll.config
-C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\SimpleInjector.xml
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\EntityFramework.xml
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\ControleCombustivel.Utilidades.pdb
@@ -37,3 +35,20 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\obj\Debug\ControleCombustivel.IoC.csproj.CoreCompileInputs.cache
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\obj\Debug\ControleCombustivel.IoC.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\obj\Debug\ControleCombustivel.IoC.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\CommonServiceLocator.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Abstractions.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Configuration.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Container.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Interception.Configuration.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Interception.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.RegistrationByConvention.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.ServiceLocation.dll
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\CommonServiceLocator.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Abstractions.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Configuration.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Container.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Interception.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.Interception.Configuration.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.RegistrationByConvention.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.IoC\bin\Debug\Unity.ServiceLocation.pdb

@@ -12,76 +12,178 @@ using System.Web.Http;
 
 namespace ControleCombustivel.Api.Controllers
 {
-    public class AbastecimentoController : BaseController
+    public class AbastecimentoController : ApiController
     {
         private readonly IAbastecimentoService _abastecimentoService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AbastecimentoController(IUnitOfWork unitOfWork, IAbastecimentoService abastecimentoService) :base(unitOfWork)
+
+        public AbastecimentoController(IUnitOfWork unitOfWork, IAbastecimentoService abastecimentoService)
         {
             this._abastecimentoService = abastecimentoService;
+            this._unitOfWork = unitOfWork;
         }
 
         [HttpGet]
-        public async Task<HttpResponseMessage> Buscar(int id)
+        public HttpResponseMessage Buscar(int id)
         {
-            _abastecimentoService.Get(id);
-            return await ResponseAsync(Ok(), _abastecimentoService);
+            try
+            {
+                Abastecimento data =_abastecimentoService.Get(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> Adicionar (Abastecimento model)
+        public HttpResponseMessage Adicionar(Abastecimento model)
         {
-            _abastecimentoService.Add(model);
-            return await ResponseAsync(Ok(), _abastecimentoService);
+            try
+            {
+                _abastecimentoService.Add(model);
+                if(_abastecimentoService.HasNotifications())
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = _abastecimentoService.GetNotifications() });
+                _unitOfWork.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
+        }
+
+        [HttpPut]
+        public HttpResponseMessage Atualizar(Abastecimento model)
+        {
+            try
+            {
+                _abastecimentoService.Update(model);
+                if (_abastecimentoService.HasNotifications())
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = _abastecimentoService.GetNotifications() });
+                _unitOfWork.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
         }
 
         [HttpDelete]
-        public async Task<HttpResponseMessage> Atualizar(Abastecimento model)
+        public HttpResponseMessage Remover(Abastecimento model)
         {
-            _abastecimentoService.Update(model);
-            return await ResponseAsync(Ok(), _abastecimentoService);
+            try
+            {
+                _abastecimentoService.Remove(model);
+                if (_abastecimentoService.HasNotifications())
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = _abastecimentoService.GetNotifications() });
+                _unitOfWork.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
         }
 
-        [HttpPost]
-        public async Task<HttpResponseMessage> Remover(Abastecimento model)
+        [HttpDelete]
+        public HttpResponseMessage Remover(int id)
         {
-            _abastecimentoService.Remove(model);
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> BuscarPorUsuario(int id)
-        {
-            _abastecimentoService.BuscarPorUsuario(id);
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> BuscarPorVeiculo(int id)
-        {
-            _abastecimentoService.BuscarPorVeiculo(id, 0);
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> BuscarPorPosto(int id)
-        {
-            _abastecimentoService.BuscarPorPosto(id, 0);
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> BuscarPorCompetencia(int mes, int ano)
-        {
-            _abastecimentoService.BuscarPorCompetencia(mes, ano, 0);
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            try
+            {
+                _abastecimentoService.Remove(id);
+                if (_abastecimentoService.HasNotifications())
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = _abastecimentoService.GetNotifications() });
+                _unitOfWork.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
         }
 
         [HttpGet]
-        public async Task<HttpResponseMessage> BuscarPorTipoCombustivel(int id)
+        public HttpResponseMessage BuscarPorUsuario(int id)
         {
-            _abastecimentoService.BuscarPorTipoCombustivel(id, 0);
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            try
+            {
+                IEnumerable<Abastecimento> data = _abastecimentoService.BuscarPorUsuario(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        public HttpResponseMessage BuscarPorVeiculo(int id)
+        {
+            try
+            {
+                IEnumerable<Abastecimento> data = _abastecimentoService.BuscarPorVeiculo(id, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        public HttpResponseMessage BuscarPorPosto(int id)
+        {
+            try
+            {
+                IEnumerable<Abastecimento> data = _abastecimentoService.BuscarPorPosto(id, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        public HttpResponseMessage BuscarPorCompetencia(int mes, int ano)
+        {
+            try
+            {
+                IEnumerable<Abastecimento> data = _abastecimentoService.BuscarPorCompetencia(mes, ano, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        public HttpResponseMessage BuscarPorTipoCombustivel(int id)
+        {
+            try
+            {
+                IEnumerable<Abastecimento> data = _abastecimentoService.BuscarPorTipoCombustivel(id, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict, $"Houve um problema interno com o servidor. Entre em contato com o Administrador do sistema caso o problema persista. Erro interno: {ex.Message}");
+            }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            //Realiza o dispose no serviço para que possa ser zerada as notificações
+            if (_abastecimentoService != null)
+            {
+                _abastecimentoService.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

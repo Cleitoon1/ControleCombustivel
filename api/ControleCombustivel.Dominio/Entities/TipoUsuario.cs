@@ -10,6 +10,11 @@ namespace ControleCombustivel.Dominio.Entities
 
         public ICollection<Usuario> Usuarios { get; set; }
 
+        private TipoUsuario()
+        {
+
+        }
+
         public TipoUsuario(string nome)
         {
             this.Nome = nome;

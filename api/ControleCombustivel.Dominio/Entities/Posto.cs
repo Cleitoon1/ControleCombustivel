@@ -6,6 +6,11 @@ namespace ControleCombustivel.Dominio.Entities
 {
     public class Posto : EntityBase
     {
+        private Posto()
+        {
+
+        }
+
         public Posto(string nome, string cnpj, long lat, long @long, string cep, string rua, string numero, string bairro,
             string cidade, string estado) : base()
         {
