@@ -8,6 +8,7 @@ namespace ControleCombustivel.Utilidades.Validacoes
 {
     public class Configurations
     {
+        public const int MinStringLength = 3;
         public const int ShortStringLength = 30;
         public const int MediumStringLength = 60;
         public const int BigStringLength = 150;

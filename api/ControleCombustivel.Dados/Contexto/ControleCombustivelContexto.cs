@@ -49,8 +49,8 @@ namespace ControleCombustivel.Dados.Contexto
                 {
                     if (entry.Property("DataCriacao") != null)
                         entry.Property("DataCriacao").CurrentValue = DateTime.Now;
-                    if (entry.Property("DataMotificacao") != null)
-                        entry.Property("DataMotificacao").CurrentValue = DateTime.Now;
+                    if (entry.Property("DataModificacao") != null)
+                        entry.Property("DataModificacao").CurrentValue = DateTime.Now;
                     if (entry.Property("Ativo") != null)
                         entry.Property("Ativo").CurrentValue = true;
                 }

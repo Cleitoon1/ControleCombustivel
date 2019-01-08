@@ -1,4 +1,5 @@
-﻿using ControleCombustivel.Utilidades;
+﻿using ControleCombustivel.Dominio.Entities.Base;
+using ControleCombustivel.Utilidades;
 using ControleCombustivel.Utilidades.Validacoes;
 using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
@@ -51,15 +52,15 @@ namespace ControleCombustivel.Dominio.Entities
         public override void Validar()
         {
             new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.NomeCompleto, "Informe o Nome Completo")
-                .IfLengthGreaterThan(x => x.NomeCompleto, Configurations.MediumStringLength, "O Nome Completo deve ter no máximo 60 caracteres");
+                .IfNullOrInvalidLength(x => x.NomeCompleto, 10, Configurations.MediumStringLength, "O Nome Completo deve ter entre 10 e 60 caracteres");
 
             new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.Email, "Informe o Email")
-                .IfLengthGreaterThan(x => x.Email, Configurations.MediumStringLength, "O Email deve ter no máximo 30 caracteres")
+                .IfNullOrInvalidLength(x => x.Email, 10, Configurations.MediumStringLength, "O Email deve ter entre 10 e 30 caracteres")
                 .IfNotEmail(x => x.Email, "Informe um Email válido");
 
             new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.Cpf, "Informe o Cpf")
-            .IfLengthGreaterThan(x => x.Email, 15, "O Cpf deve ter no máximo 15 caracteres")
-            .IfNotCpf(x => x.Cpf, "Informe um Cpf válido");
+                .IfNullOrInvalidLength(x => x.Cpf, 11, Configurations.MediumStringLength, "O Cpf deve ter entre 10 e 15 caracteres")
+                .IfNotCpf(x => x.Cpf, "Informe um Cpf válido");
 
             new AddNotifications<Usuario>(this).IfEqualsZero(x => x.IdTipoUsuario, "Informe o Id do Tipo de Usuário");
 
@@ -68,7 +69,7 @@ namespace ControleCombustivel.Dominio.Entities
         public void AlterarSenha(string senha)
         {
             new AddNotifications<Usuario>(this).IfNotNullOrEmpty(x => x.Senha, "Informe a Senha")
-               .IfLengthGreaterThan(x => x.NomeCompleto, 12, "A Senha deve ter no máximo 12 caracteres");
+               .IfNullOrInvalidLength(x => x.Senha, 6, 12, "A Senha deve ter entre 6 e 12 caracteres");
             this.Senha = Password.Encrypt(senha);
         }
 

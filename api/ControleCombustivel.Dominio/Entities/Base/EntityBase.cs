@@ -1,7 +1,7 @@
 ﻿using prmToolkit.NotificationPattern;
 using System;
 
-namespace ControleCombustivel.Dominio.Entities
+namespace ControleCombustivel.Dominio.Entities.Base
 {
     public abstract class EntityBase : Notifiable
     {

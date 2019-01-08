@@ -1,7 +1,7 @@
 ﻿using ControleCombustivel.Dominio.Entities;
 using System.Collections.Generic;
 
-namespace ControleCombustivel.Dominio.Interfaces.Respositorios
+namespace ControleCombustivel.Dominio.Interfaces.Respositorios.Base
 {
     public interface IBaseRep<T> where T : class
     {

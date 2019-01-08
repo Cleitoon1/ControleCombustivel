@@ -3,3 +3,4 @@ C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombusti
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Utilidades\obj\Debug\ControleCombustivel.Utilidades.csproj.CoreCompileInputs.cache
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Utilidades\obj\Debug\ControleCombustivel.Utilidades.dll
 C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Utilidades\obj\Debug\ControleCombustivel.Utilidades.pdb
+C:\Users\Cleiton Alves\Documents\GitHub\ControleCombustivel\api\ControleCombustivel.Utilidades\obj\Debug\ControleCombustivel.Utilidades.csprojResolveAssemblyReference.cache

@@ -1,16 +1,23 @@
 ﻿using ControleCombustivel.Dados.Contexto;
-using ControleCombustivel.Dominio.Entities;
 using ControleCombustivel.Dominio.Interfaces.Respositorios;
+using ControleCombustivel.Dominio.Interfaces.Respositorios.Base;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ControleCombustivel.Dados.Repositorios
+namespace ControleCombustivel.Dados.Repositorios.Base
 {
     public class BaseRep<T> : IDisposable, IBaseRep<T> where T : class
     {
-        protected ControleCombustivelContexto Db = new ControleCombustivelContexto();
+        protected DbContext Db;
+
+        public BaseRep(DbContext db)
+        {
+            this.Db = db;
+        }
 
         public void Insert(T obj)
         {

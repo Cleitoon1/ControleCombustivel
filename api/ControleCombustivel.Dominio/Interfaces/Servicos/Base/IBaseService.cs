@@ -1,20 +1,21 @@
 ﻿using ControleCombustivel.Dominio.Entities;
+using ControleCombustivel.Dominio.Entities.Base;
 using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
 
-namespace ControleCombustivel.Dominio.Interfaces.Servicos
+namespace ControleCombustivel.Dominio.Interfaces.Servicos.Base
 {
     public interface IBaseService<T> where T : EntityBase, INotifiable
     {
-        bool Add(T obj);
+        void Add(T obj);
 
         T Get(int id);
 
         IEnumerable<T> GetAll();
 
-        bool Update(T obj);
+        void Update(T obj);
 
-        bool Remove(T obj);
+        void Remove(T obj);
 
         void Remove(int id);
 

@@ -1,4 +1,5 @@
-﻿using ControleCombustivel.Utilidades.Validacoes;
+﻿using ControleCombustivel.Dominio.Entities.Base;
+using ControleCombustivel.Utilidades.Validacoes;
 using prmToolkit.NotificationPattern;
 
 namespace ControleCombustivel.Dominio.Entities
@@ -67,10 +68,10 @@ namespace ControleCombustivel.Dominio.Entities
         public override void Validar()
         {
             new AddNotifications<Abastecimento>(this).IfNotNullOrEmpty(x => x.Nome, "Informe o Nome")
-                 .IfLengthGreaterThan(x => x.Nome, Configurations.ShortStringLength, "O Nome deve ter no máximo 30 caracteres");
+                 .IfNullOrInvalidLength(x => x.Nome, Configurations.MinStringLength, Configurations.ShortStringLength, "O Nome deve ter entre 3 e 30 caracteres");
 
             new AddNotifications<Abastecimento>(this).IfNotNullOrEmpty(x => x.Descricao, "Informe a Descrição")
-                 .IfLengthGreaterThan(x => x.Descricao, Configurations.BigStringLength, "O Descrição deve ter no máximo 150 caracteres");
+                 .IfNullOrInvalidLength(x => x.Descricao, Configurations.MinStringLength, Configurations.BigStringLength, "O Descrição deve entre 3 e 150 caracteres");
 
             new AddNotifications<Abastecimento>(this).IfLowerOrEqualsThan(x => x.Quantidade, 0M, "Informe a Quantidade");
 

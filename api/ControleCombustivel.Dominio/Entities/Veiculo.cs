@@ -1,4 +1,5 @@
-﻿using ControleCombustivel.Utilidades.Validacoes;
+﻿using ControleCombustivel.Dominio.Entities.Base;
+using ControleCombustivel.Utilidades.Validacoes;
 using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
 
@@ -54,16 +55,15 @@ namespace ControleCombustivel.Dominio.Entities
         {
 
             new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe o Modelo")
-                .IfLengthGreaterThan(x => x.Modelo, Configurations.MediumStringLength, "O Modelo deve ter no máximo 60 caracteres");
+                .IfNullOrInvalidLength(x => x.Modelo, Configurations.MinStringLength, Configurations.MediumStringLength,
+                "O Modelo deve ter entre 3 e 60 caracteres");
 
             new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe a Placa")
-                .IfLengthGreaterThan(x => x.Modelo, 8, "A Placa deve ter no máximo 8 caracteres");
-
-            new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe o Modelo")
-                .IfLengthGreaterThan(x => x.Modelo, Configurations.MediumStringLength, "O Modelo deve ter no máximo 60 caracteres");
+                .IfNullOrInvalidLength(x => x.Modelo, 7, 8, "A Placa deve ter no máximo 8 caracteres");
 
             new AddNotifications<Veiculo>(this).IfNotNullOrEmpty(x => x.Modelo, "Informe o Fabricante")
-                .IfLengthGreaterThan(x => x.Modelo, Configurations.MediumStringLength, "O Fabricante deve ter no máximo 60 caracteres");
+                .IfNullOrInvalidLength(x => x.Modelo, Configurations.MinStringLength, Configurations.MediumStringLength,
+                    "O Fabricante deve ter entre 3 e 60 caracteres");
 
             new AddNotifications<Veiculo>(this).IfLowerOrEqualsThan(x => x.AnoFabricacao, 1950, "Informe um ano válido");
 

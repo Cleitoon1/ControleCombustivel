@@ -1,4 +1,5 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using ControleCombustivel.Dominio.Entities.Base;
+using prmToolkit.NotificationPattern;
 using System;
 using System.Collections.Generic;
 

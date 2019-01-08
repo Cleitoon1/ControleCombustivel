@@ -70,7 +70,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AbastecimentoRep.cs" />
-    <Compile Include="Repositorios\BaseRep.cs" />
+    <Compile Include="Repositorios\Base\BaseRep.cs" />
     <Compile Include="Repositorios\CompetenciaRep.cs" />
     <Compile Include="Repositorios\PostoRep.cs" />
     <Compile Include="Repositorios\TipoCombustivelRep.cs" />

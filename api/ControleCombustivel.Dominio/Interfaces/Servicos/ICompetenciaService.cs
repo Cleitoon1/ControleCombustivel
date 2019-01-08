@@ -1,4 +1,5 @@
 ﻿using ControleCombustivel.Dominio.Entities;
+using ControleCombustivel.Dominio.Interfaces.Servicos.Base;
 using System.Collections.Generic;
 
 namespace ControleCombustivel.Dominio.Interfaces.Servicos

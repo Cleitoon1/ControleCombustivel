@@ -1,12 +1,15 @@
 ﻿using ControleCombustivel.Dominio.Entities;
+using ControleCombustivel.Dominio.Entities.Base;
 using ControleCombustivel.Dominio.Interfaces.Respositorios;
+using ControleCombustivel.Dominio.Interfaces.Respositorios.Base;
 using ControleCombustivel.Dominio.Interfaces.Servicos;
+using ControleCombustivel.Dominio.Interfaces.Servicos.Base;
 using prmToolkit.NotificationPattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ControleCombustivel.Dominio.Servicos
+namespace ControleCombustivel.Dominio.Servicos.Base
 {
     public class BaseService<T> : Notifiable, IBaseService<T> where T : EntityBase
     {
@@ -18,13 +21,11 @@ namespace ControleCombustivel.Dominio.Servicos
         }
         
 
-        public bool Add(T obj)
+        public void Add(T obj)
         {
+            obj.Validar();
             AddNotifications(obj);
-            bool ok = obj.Notifications.Any();
-            if(!ok)
-                _rep.Insert(obj);
-            return !ok;
+            _rep.Insert(obj);
         }
 
         public IEnumerable<T> GetAll()
@@ -32,13 +33,11 @@ namespace ControleCombustivel.Dominio.Servicos
             return _rep.GetAll();
         }
 
-        public bool Update(T obj)
+        public void Update(T obj)
         {
-            AddNotifications(obj);
-            bool ok = obj.Notifications.Any();
-            if (!ok)
-                _rep.Update(obj);
-            return !ok;
+            obj.Validar();
+            AddNotifications(obj.Notifications);
+            _rep.Update(obj);
         }
 
         public T Get(int id)
@@ -46,20 +45,18 @@ namespace ControleCombustivel.Dominio.Servicos
             return _rep.Get(id);
         }
 
-        public bool Remove(T obj)
+        public void Remove(T obj)
         {
+            obj.Validar();
             AddNotifications(obj);
-            bool ok = obj.Notifications.Any();
-            if(!ok)
-                _rep.Remove(obj);
-            return !ok;
+            _rep.Remove(obj);
         }
 
         public void Remove(int id)
         {
             T obj = this.Get(id);
             if (obj == null)
-                throw new Exception();
+                throw new Exception("Inválid");
             this.Remove(obj);
         }
 

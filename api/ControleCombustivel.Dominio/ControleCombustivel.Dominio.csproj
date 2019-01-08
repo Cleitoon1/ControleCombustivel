@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Abastatecimento.cs" />
-    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Base\EntityBase.cs" />
     <Compile Include="Entities\Competencia.cs" />
     <Compile Include="Entities\Posto.cs" />
     <Compile Include="Entities\TipoCombustivel.cs" />
@@ -108,7 +108,7 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\Veiculo.cs" />
     <Compile Include="Interfaces\Respositorios\IAbastecimentoRep.cs" />
-    <Compile Include="Interfaces\Respositorios\IBaseRep.cs" />
+    <Compile Include="Interfaces\Respositorios\Base\IBaseRep.cs" />
     <Compile Include="Interfaces\Respositorios\ICompetenciaRep.cs" />
     <Compile Include="Interfaces\Respositorios\IPostoRep.cs" />
     <Compile Include="Interfaces\Respositorios\ITipoCombustivelRep.cs" />
@@ -116,7 +116,7 @@
     <Compile Include="Interfaces\Respositorios\IUsuarioRep.cs" />
     <Compile Include="Interfaces\Respositorios\IVeiculoRep.cs" />
     <Compile Include="Interfaces\Servicos\IAbastecimentoService.cs" />
-    <Compile Include="Interfaces\Servicos\IBaseService.cs" />
+    <Compile Include="Interfaces\Servicos\Base\IBaseService.cs" />
     <Compile Include="Interfaces\Servicos\ICompetenciaService.cs" />
     <Compile Include="Interfaces\Servicos\IPostoService.cs" />
     <Compile Include="Interfaces\Servicos\ITipoCombustivelService.cs" />
@@ -125,7 +125,7 @@
     <Compile Include="Interfaces\Servicos\IVeiculoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\AbastecimentoService.cs" />
-    <Compile Include="Servicos\BaseService.cs" />
+    <Compile Include="Servicos\Base\BaseService.cs" />
     <Compile Include="Servicos\CompetenciaService.cs" />
     <Compile Include="Servicos\PostoService.cs" />
     <Compile Include="Servicos\TipoCombustivelService.cs" />
